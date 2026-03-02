@@ -48,7 +48,7 @@ process.on('uncaughtException', kink => {
 
 async function start() {
   const fixtures = (await fs.readdir(`${__dirname}/file`))
-    .filter(x => x.endsWith('.note'))
+    .filter(x => x.endsWith('.tree'))
     .map(x => `${__dirname}/file/${x}`)
     .filter(x => !FIND || x.match(FIND))
 
@@ -65,7 +65,7 @@ async function start() {
   }
 
   const kinkFixtures = (await fs.readdir(`${__dirname}/file/kink`))
-    .filter(x => x.endsWith('.note'))
+    .filter(x => x.endsWith('.tree'))
     .map(x => `${__dirname}/file/kink/${x}`)
     .filter(x => !FIND || x.match(FIND))
 
@@ -111,7 +111,7 @@ function assertParseKink(
   const lead = makeTree({ file, text: provided })
 
   if (lead instanceof KinkList) {
-    const noteList = lead.list.map(x => x.note).join('\n')
+    const noteList = lead.list.map(x => x.tree).join('\n')
 
     if (expected !== noteList) {
       // console.log(a)
