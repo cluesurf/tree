@@ -89,7 +89,10 @@ function assertParse(file: string, provided: string, expected: string) {
   const lead = makeTree({ file, text: provided })
 
   if (file.match('index.tree')) {
-    _fs.writeFileSync(`${__dirname}/file/index.treeon`, JSON.stringify(lead, null, 2))
+    _fs.writeFileSync(
+      `${__dirname}/file/index.json`,
+      JSON.stringify(lead, null, 2),
+    )
   }
 
   if (lead instanceof KinkList) {
