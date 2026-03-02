@@ -2,93 +2,117 @@ import type { Leaf } from '../leaf/form.js'
 import haveHalt from '@termsurf/have/make/halt.js'
 
 export enum TreeHint {
-  // Mark = 'mark',
-  // bind == interpolated == dynamic
-  BindKnit = 'bind-knit',
-  BindText = 'bind-text',
+  // Code = 'code',
+  // nick == interpolated == dynamic
+  NickKnit = 'nick-knit',
+  NickText = 'nick-text',
   Void = 'void',
   // Size = 'size',
   Knit = 'knit',
   Text = 'text',
 }
 
-export enum TreeForm {
-  Tree = 'tree',
-  Link = 'link',
-  Term = 'term',
-  Mark = 'mark',
-  Cord = 'cord',
-  Bind = 'bind',
-  Text = 'text',
+export enum TreeName {
+  Comb = 'tree-comb',
+  Code = 'tree-code',
+  Knit = 'tree-knit',
+  Nick = 'tree-nick',
+  Text = 'tree-text',
+  Cord = 'tree-cord',
+  Fork = 'tree-fork',
+  Size = 'tree-size',
+  Line = 'tree-line',
 }
 
 export type TreeHash = {
-  tree: Tree
-  link: TreeLink
-  term: TreeTerm
-  mark: TreeMark
-  cord: TreeCord
-  bind: TreeBind
-  text: TreeText
+  'tree-comb': TreeComb
+  'tree-code': TreeCode
+  'tree-knit': TreeKnit
+  'tree-nick': TreeNick
+  'tree-cord': TreeCord
+  'tree-text': TreeText
+  'tree-fork': TreeFork
+  'tree-size': TreeSize
+  'tree-line': TreeLine
 }
 
 export const TREE_FORM = [
-  TreeForm.Tree,
-  TreeForm.Link,
-  TreeForm.Term,
-  TreeForm.Mark,
-  TreeForm.Cord,
-  TreeForm.Bind,
-  TreeForm.Text,
+  TreeName.Comb,
+  TreeName.Code,
+  TreeName.Knit,
+  TreeName.Nick,
+  TreeName.Text,
+  TreeName.Cord,
+  TreeName.Fork,
+  TreeName.Size,
+  TreeName.Line,
 ]
 
-export type Tree = {
-  form: TreeForm.Tree
-  list: Array<TreeLink>
+export type TreeCallCast = {
+  tree: TreeLine
 }
 
-export type TreeLink = {
-  form: TreeForm.Link
-  text: string
-  list: Array<TreeTerm | TreeLink | TreeCord | TreeMark>
-  base?: TreeTerm | TreeBind
-  code?: TreeCode
+export type TreeFold = {
+  base?: Leaf
+  head?: Leaf
 }
 
-export type TreeTerm = {
-  form: TreeForm.Term
-  list: Array<TreeCord | TreeBind>
-  base?: TreeTerm | TreeBind
-  code?: TreeCode
+export type TreeLine = {
+  nest: Array<TreeFork>
+  form: TreeName.Line
 }
 
-export type TreeBind = {
-  form: TreeForm.Bind
+export type TreeFork = {
+  fold?: TreeFold
+  nest: Array<
+    | TreeText
+    | TreeFork
+    | TreeSize
+    | TreeText
+    | TreeCord
+    | TreeNick
+    | TreeComb
+    | TreeCode
+    | TreeKnit
+  >
+  base?: TreeFork | TreeNick
+  form: TreeName.Fork
+}
+
+export type TreeComb = {
+  form: TreeName.Comb
+  bond: number
+  base?: TreeFork
+  leaf: Leaf
+}
+
+export type TreeCode = {
+  bond: number
+  mold: string
+  base?: TreeFork
+  form: TreeName.Code
+  leaf: Leaf
+}
+
+export type TreeKnit = {
+  base?: TreeFork
+  nest: Array<TreeNick | TreeCord>
+  form: TreeName.Knit
+  fold?: TreeFold
+}
+
+export type TreeNick = {
+  nest?: TreeFork
+  base?: TreeKnit | TreeText
   size: number
-  link: TreeLink
-  base?: TreeSite
-  code?: TreeCode
-}
-
-export type TreeMark = {
-  form: TreeForm.Mark
-  text: string
-  base?: TreeSite
-  code?: TreeCode
+  form: TreeName.Nick
+  fold?: TreeFold
 }
 
 export type TreeCord = {
-  form: TreeForm.Cord
-  text: string
-  base?: TreeText | TreeBind
-  code?: TreeCode
-}
-
-export type TreeText = {
-  form: TreeForm.Text
-  list: Array<TreeCord | TreeBind>
-  base?: TreeSite
-  code?: TreeCode
+  form: TreeName.Cord
+  base?: TreeText | TreeKnit
+  leaf: Leaf
 }
 
 /**
@@ -96,28 +120,39 @@ export type TreeText = {
  * so we know where it starts and ends easily.
  */
 
-export type TreeCode = {
-  base?: Leaf
-  head?: Leaf
+export type TreeText = {
+  nest: Array<TreeCord | TreeNick>
+  form: TreeName.Text
+  base?: TreeFork
+  fold?: TreeFold
 }
 
-export type TreeSite =
-  | TreeMark
-  | TreeLink
-  | TreeTerm
-  | TreeBind
+export type TreeSize = {
+  form: TreeName.Size
+  bond: number
+  base?: TreeFork
+  leaf: Leaf
+}
+
+export type Tree =
+  | TreeComb
+  | TreeCode
+  | TreeKnit
+  | TreeNick
   | TreeCord
   | TreeText
-  | Tree
+  | TreeFork
+  | TreeSize
+  | TreeLine
 
-export function testTreeForm<N extends TreeForm>(
+export function testTreeForm<N extends TreeName>(
   lead: unknown,
   name: N,
 ): lead is TreeHash[N] {
-  return (lead as TreeSite).form === name
+  return (lead as Tree).form === name
 }
 
-export function haveTreeForm<N extends TreeForm>(
+export function haveTreeForm<N extends TreeName>(
   lead: unknown,
   name: N,
 ): asserts lead is TreeHash[N] {
@@ -126,14 +161,14 @@ export function haveTreeForm<N extends TreeForm>(
   }
 }
 
-export function testTree(lead: unknown): lead is TreeSite {
-  return TREE_FORM.includes((lead as TreeSite).form)
+export function testTree(lead: unknown): lead is Tree {
+  return TREE_FORM.includes((lead as Tree).form)
 }
 
 export function haveTree(
   lead: unknown,
   call: string,
-): asserts lead is TreeSite {
+): asserts lead is Tree {
   if (!testTree(lead)) {
     throw haveHalt('form_miss', { call, need: 'tree' })
   }

@@ -3,12 +3,12 @@
   "type": "module",
   "version": "1.1.3",
   "license": "MIT",
-  "main": "./host/code/index.js",
+  "main": "./host/index.js",
   "scripts": {
-    "make": "tsc && tsc-alias",
-    "scan": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
-    "test": "tsx test/index.test.ts",
-    "host": "rm -rf host && pnpm make && npm publish --access=public"
+    "make": "rm -rf host && mkdir -p host && pnpm exec tsc --project tsconfig.json --pretty --noEmitOnError false && pnpm exec tsc-alias --project tsconfig.json && cp package.json host",
+    "scan": "rm -rf host && concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
+    "test": "npx tsx --no-warnings=ExperimentalWarning test/index.test.ts",
+    "host": "pnpm make && npm publish --access=public"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "6.0.2",

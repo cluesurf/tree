@@ -12,8 +12,8 @@ import {
   TreeLine,
   TreeHint,
   TreeKnit,
-  TreeForm,
-  TreeTake,
+  TreeName,
+  TreeNick,
   TreeFork,
   haveTree,
   TreeText,
@@ -45,7 +45,7 @@ type Slab = {
 
 function readSiftTree(link: SiftCallCast): TreeCallCast | KinkList {
   const tree: TreeLine = {
-    form: TreeForm.Line,
+    form: TreeName.Line,
     nest: [],
   }
   const line: Array<Tree> = [tree]
@@ -245,9 +245,9 @@ function readComb(link: TreeCallTree<SiftName.Comb>): void {
   const { base, slab } = readBase(link)
 
   switch (base.form) {
-    case TreeForm.Fork: {
+    case TreeName.Fork: {
       const comb: TreeComb = {
-        form: TreeForm.Comb,
+        form: TreeName.Comb,
         leaf: link.seed.leaf,
         bond: link.seed.bond,
       }
@@ -270,9 +270,9 @@ function readCode(link: TreeCallTree<SiftName.Code>): void {
   const { base, slab } = readBase(link)
 
   switch (base.form) {
-    case TreeForm.Fork: {
+    case TreeName.Fork: {
       const code: TreeCode = {
-        form: TreeForm.Code,
+        form: TreeName.Code,
         leaf: link.seed.leaf,
         bond: link.seed.bond,
         mold: link.seed.mold,
@@ -296,10 +296,10 @@ function readRiseFork(link: TreeCallTree<SiftName.RiseFork>): void {
   const { base, slab, wall } = readBase(link)
 
   switch (base.form) {
-    case TreeForm.Line: {
+    case TreeName.Line: {
       const fork: TreeFork = {
         nest: [],
-        form: TreeForm.Fork,
+        form: TreeName.Fork,
       }
 
       base.nest.push(fork)
@@ -310,10 +310,10 @@ function readRiseFork(link: TreeCallTree<SiftName.RiseFork>): void {
       takeSlab(slab, fork)
       break
     }
-    case TreeForm.Fork: {
+    case TreeName.Fork: {
       const fork: TreeFork = {
         nest: [],
-        form: TreeForm.Fork,
+        form: TreeName.Fork,
       }
 
       base.nest.push(fork)
@@ -324,10 +324,10 @@ function readRiseFork(link: TreeCallTree<SiftName.RiseFork>): void {
       takeSlab(slab, fork)
       break
     }
-    case TreeForm.Nick: {
+    case TreeName.Nick: {
       const fork: TreeFork = {
         nest: [],
-        form: TreeForm.Fork,
+        form: TreeName.Fork,
       }
 
       base.nest = fork
@@ -351,9 +351,9 @@ function readRiseNick(link: TreeCallTree<SiftName.RiseNick>): void {
   const { base, wall } = readBase(link)
 
   switch (base.form) {
-    case TreeForm.Knit: {
-      const nick: TreeTake = {
-        form: TreeForm.Nick,
+    case TreeName.Knit: {
+      const nick: TreeNick = {
+        form: TreeName.Nick,
         size: link.seed.size,
         // fold: link.seed.leaf,
       }
@@ -365,9 +365,9 @@ function readRiseNick(link: TreeCallTree<SiftName.RiseNick>): void {
       linkBase(nick, base)
       break
     }
-    case TreeForm.Text: {
-      const nick: TreeTake = {
-        form: TreeForm.Nick,
+    case TreeName.Text: {
+      const nick: TreeNick = {
+        form: TreeName.Nick,
         size: link.seed.size,
         // fold: link.seed.leaf,
       }
@@ -392,9 +392,9 @@ function readRiseKnit(link: TreeCallTree<SiftName.RiseKnit>): void {
   const { base, slab } = readBase(link)
 
   switch (base.form) {
-    case TreeForm.Fork: {
+    case TreeName.Fork: {
       const knit: TreeKnit = {
-        form: TreeForm.Knit,
+        form: TreeName.Knit,
         nest: [],
       }
 
@@ -419,9 +419,9 @@ function readRiseText(link: TreeCallTree<SiftName.RiseText>): void {
   const { base, slab } = readBase(link)
 
   switch (base.form) {
-    case TreeForm.Fork: {
+    case TreeName.Fork: {
       const text: TreeText = {
-        form: TreeForm.Text,
+        form: TreeName.Text,
         nest: [],
       }
       base.nest.push(text)
@@ -441,9 +441,9 @@ function readCord(link: TreeCallTree<SiftName.Cord>): void {
   const { base } = readBase(link)
 
   switch (base.form) {
-    case TreeForm.Knit: {
+    case TreeName.Knit: {
       const cord: TreeCord = {
-        form: TreeForm.Cord,
+        form: TreeName.Cord,
         leaf: link.seed.leaf,
       }
 
@@ -452,9 +452,9 @@ function readCord(link: TreeCallTree<SiftName.Cord>): void {
       linkBase(cord, base)
       break
     }
-    case TreeForm.Text: {
+    case TreeName.Text: {
       const cord: TreeCord = {
-        form: TreeForm.Cord,
+        form: TreeName.Cord,
         leaf: link.seed.leaf,
       }
 
@@ -476,9 +476,9 @@ function readSize(link: TreeCallTree<SiftName.Size>): void {
   const { base } = readBase(link)
 
   switch (base.form) {
-    case TreeForm.Fork: {
+    case TreeName.Fork: {
       const size: TreeSize = {
-        form: TreeForm.Size,
+        form: TreeName.Size,
         leaf: link.seed.leaf,
         bond: link.seed.bond,
       }
@@ -488,7 +488,7 @@ function readSize(link: TreeCallTree<SiftName.Size>): void {
       linkBase(size, base)
       break
     }
-    case TreeForm.Line: {
+    case TreeName.Line: {
       link.kinkList.push(
         kink('invalid_nesting', {
           file: link.file,

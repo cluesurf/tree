@@ -1,17 +1,18 @@
 import assert from 'assert'
 import { promises as fs } from 'fs'
+import _fs from 'fs'
 import { dirname } from 'path'
 import stripAnsi from 'strip-ansi'
 import { fileURLToPath } from 'url'
 import Kink, { KinkList } from '@termsurf/kink'
 import { makeBaseKinkText, makeKinkText } from '@termsurf/kink-text'
 
-import makeTree from '../code/index.js'
-import { showTreeLine } from '../code/tree/index.js'
-import show from 'code/sift/show.js'
-import makeSiftList, { SiftCallCast } from 'code/sift/index.js'
-import makeTextList from 'code/leaf/index.js'
-import { LeafCallCast } from 'code/leaf/form.js'
+import makeTree from '../code/index'
+import { showTreeLine } from '../code/tree/index'
+import show from '../code/sift/show'
+import makeSiftList, { SiftCallCast } from '../code/sift/index'
+import makeTextList from '../code/leaf/index'
+import { LeafCallCast } from '../code/leaf/form'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -86,6 +87,10 @@ start()
 
 function assertParse(file: string, provided: string, expected: string) {
   const lead = makeTree({ file, text: provided })
+
+  if (file.match('index.tree')) {
+    _fs.writeFileSync(`${__dirname}/file/index.treeon`, JSON.stringify(lead, null, 2))
+  }
 
   if (lead instanceof KinkList) {
     throw lead
