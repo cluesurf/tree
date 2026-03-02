@@ -119,7 +119,7 @@ function assertParseKink(
   const lead = makeTree({ file, text: provided })
 
   if (lead instanceof KinkList) {
-    const noteList = lead.list.map(x => x.tree).join('\n')
+    const noteList = lead.list.map(x => x.note).join('\n')
 
     if (expected !== noteList) {
       // console.log(a)

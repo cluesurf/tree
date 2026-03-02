@@ -296,13 +296,15 @@ export default function makeSiftList(
         // try fixing the code and seeing what happens
         tick = readNote.tick + 1
       } else if (tick > lastTick + 1) {
-        // kinkList.push(
-        //   kink('invalid_nesting', {
-        //     band: seed.band,
-        //     text: link.lineText,
-        //     file: link.file,
-        //   }),
-        // )
+        if (readNoteList.length === 1) {
+          kinkList.push(
+            kink('invalid_indentation', {
+              band: seed.band,
+              text: link.lineText,
+              file: link.file,
+            }),
+          )
+        }
         // try fixing the code and seeing what happens
         tick = lastTick + 1
       } else if (tick < readNote.tick) {
