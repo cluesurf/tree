@@ -530,11 +530,35 @@ export default function makeSiftList(
   function castKnit(seed: LeafKnit) {
     castRiseKnit(seed)
 
-    // if (seed.text.match(/\/{2,}/)) {
-    //   haltList.push(new Error('Invalid knit'))
-    // } else if (!seed.text.match(/^[0-9a-z-\/]+$/)) {
-    //   haltList.push(new Error('Invalid knit'))
-    // }
+    if (seed.text.includes('/')) {
+      const followsNick =
+        seed.back?.form === LeafName.FallNick
+      const segments = seed.text.split('/')
+      for (let i = 0; i < segments.length; i++) {
+        const segment = segments[i]!
+        if (segment.startsWith('-') && !(i === 0 && followsNick)) {
+          kinkList.push(
+            kink('syntax_error', {
+              band: seed.band,
+              text: link.lineText,
+              file: link.file,
+            }),
+          )
+          break
+        }
+        const qIdx = segment.indexOf('?')
+        if (qIdx !== -1 && qIdx !== segment.length - 1) {
+          kinkList.push(
+            kink('syntax_error', {
+              band: seed.band,
+              text: link.lineText,
+              file: link.file,
+            }),
+          )
+          break
+        }
+      }
+    }
 
     siftList.push({
       form: SiftName.Cord,
