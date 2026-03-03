@@ -41,7 +41,7 @@ function showTreeTreeBase(
       break
     }
     case TreeName.Cord: {
-      list.push(seed.leaf.text)
+      list.push(seed.text)
       break
     }
     case TreeName.Fork: {
@@ -53,6 +53,8 @@ function showTreeTreeBase(
         })
       }
 
+      const opt = seed.optional ? '?' : ''
+
       const nest: Array<string> = []
       seed.nest.slice(1).forEach(el => {
         showTreeTreeBase(el, flat, nestSize + 1).forEach(line => {
@@ -63,12 +65,15 @@ function showTreeTreeBase(
       if (flat) {
         const text = nest.join(', ').trim()
         if (text) {
-          list.push(`${head.join('')}(${text})`)
+          list.push(`${head.join('')}${opt}(${text})`)
         } else {
-          list.push(`${head.join('')}`)
+          list.push(`${head.join('')}${opt}`)
         }
       } else {
-        list.push(...head)
+        const headText = head.join('')
+        if (headText) {
+          list.push(`${headText}${opt}`)
+        }
         nest.forEach(line => {
           if (line) {
             list.push(`  ${line}`)

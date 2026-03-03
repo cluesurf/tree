@@ -442,20 +442,29 @@ function readCord(link: TreeCallTree<SiftName.Cord>): void {
 
   switch (base.form) {
     case TreeName.Knit: {
+      const leaf = link.seed.leaf
+      const hasOptional = leaf.text.includes('?')
       const cord: TreeCord = {
         form: TreeName.Cord,
-        leaf: link.seed.leaf,
+        text: hasOptional ? leaf.text.replace(/\?/g, '') : leaf.text,
+        leaf,
       }
 
       base.nest.push(cord)
+
+      if (hasOptional && base.base) {
+        base.base.optional = true
+      }
 
       linkBase(cord, base)
       break
     }
     case TreeName.Text: {
+      const leaf = link.seed.leaf
       const cord: TreeCord = {
         form: TreeName.Cord,
-        leaf: link.seed.leaf,
+        text: leaf.text,
+        leaf,
       }
 
       base.nest.push(cord)

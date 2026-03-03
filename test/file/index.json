@@ -493,6 +493,7 @@
             "nest": [
               {
                 "form": "tree-cord",
+                "text": "some",
                 "leaf": {
                   "form": "leaf-cord",
                   "band": {
@@ -531,6 +532,7 @@
                 "nest": [
                   {
                     "form": "tree-cord",
+                    "text": "thing/",
                     "leaf": {
                       "form": "leaf-cord",
                       "band": {
@@ -584,6 +586,7 @@
                           "nest": [
                             {
                               "form": "tree-cord",
+                              "text": "another",
                               "leaf": {
                                 "form": "leaf-cord",
                                 "band": {
@@ -636,6 +639,7 @@
                               "nest": [
                                 {
                                   "form": "tree-cord",
+                                  "text": "a/b/c",
                                   "leaf": {
                                     "form": "leaf-cord",
                                     "band": {
@@ -691,6 +695,7 @@
                               "nest": [
                                 {
                                   "form": "tree-cord",
+                                  "text": "1",
                                   "leaf": {
                                     "form": "leaf-cord",
                                     "band": {
@@ -746,6 +751,7 @@
                               "nest": [
                                 {
                                   "form": "tree-cord",
+                                  "text": "foo",
                                   "leaf": {
                                     "form": "leaf-cord",
                                     "band": {
@@ -798,6 +804,7 @@
                                   "nest": [
                                     {
                                       "form": "tree-cord",
+                                      "text": "bar",
                                       "leaf": {
                                         "form": "leaf-cord",
                                         "band": {
@@ -850,6 +857,7 @@
                                       "nest": [
                                         {
                                           "form": "tree-cord",
+                                          "text": "baz",
                                           "leaf": {
                                             "form": "leaf-cord",
                                             "band": {

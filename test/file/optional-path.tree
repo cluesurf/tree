@@ -1,0 +1,17 @@
+
+x foo?/bar
+  baz?/qux?
+  a/b?/c/d?
+  ./foo?/bar?/baz
+  {x}?/y
+  @scope/pkg?/entry
+
+---
+
+x
+  foo/bar?
+  baz/qux?
+  a/b/c/d?
+  ./foo/bar/baz?
+  {x}/y?
+  @scope/pkg/entry?
