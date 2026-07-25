@@ -12,7 +12,7 @@
 
 <h3 align='center'>tree</h3>
 <p align='center'>
-  A Modeling Notation
+  A flexible modeling notation
 </p>
 
 <br/>

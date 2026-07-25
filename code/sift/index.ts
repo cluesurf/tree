@@ -390,18 +390,9 @@ export default function makeSiftList(
   function castCode(seed: LeafCode) {
     testBaseLine()
 
-    if (seed.text.match(/#([xbo])([0-9a-f]+)/i)) {
-      const mold = RegExp.$1
+    if (seed.text.match(/^0([xXbBoO])([0-9a-fA-F]+)/)) {
+      const mold = RegExp.$1.toLowerCase()
       const bond = readCode(mold, RegExp.$2)
-      siftList.push({
-        form: SiftName.Code,
-        bond,
-        mold,
-        leaf: seed,
-      })
-    } else if (seed.text.match(/#(\d+)n(\w+)/)) {
-      const mold = RegExp.$1
-      const bond = parseInt(RegExp.$2, parseInt(mold, 10))
       siftList.push({
         form: SiftName.Code,
         bond,

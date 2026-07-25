@@ -109,7 +109,7 @@ const TEST: Record<LeafName, LeafSeed> = {
     test: /^-?\d+\.\d+/,
   },
   [LeafName.Code]: {
-    test: /^#\w+/,
+    test: /^0[xXbBoO]\w+/,
   },
   [LeafName.SlotLine]: {
     test: /^\n/,
