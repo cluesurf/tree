@@ -199,6 +199,104 @@ function readSiftTree(link: SiftCallCast): TreeCallCast | KinkList {
       }
 }
 
+/**
+ * Error-tolerant variant of readSiftTree.
+ * Always returns a partial tree along with any errors collected.
+ */
+function readSiftTreeTolerant(link: SiftCallCast): { cast: TreeCallCast; kinkList: Array<Kink> } {
+  const tree: TreeLine = {
+    form: TreeName.Line,
+    nest: [],
+  }
+  const line: Array<Tree> = [tree]
+  const nest: Array<Tree> = [tree]
+
+  const slab: Slab = {
+    line,
+    nest,
+    slot: 0,
+  }
+
+  const wall: Array<Slab> = [slab]
+  const kinkList: Array<Kink> = []
+
+  let tick = 0
+
+  while (tick < link.siftList.length) {
+    const seed = link.siftList[tick]
+    haveMesh(seed, 'seed')
+
+    try {
+      switch (seed.form) {
+        case SiftName.RiseKnit:
+          readRiseKnit({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.FallKnit:
+          readFallKnit({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.RiseFork:
+          readRiseFork({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.FallFork:
+          readFallFork({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.RiseNick:
+          readRiseNick({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.FallNick:
+          readFallNick({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.Size:
+          readSize({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.RiseText:
+          readRiseText({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.FallText:
+          readFallText({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.Cord:
+          readCord({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.Comb:
+          readComb({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.Code:
+          readCode({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.RiseNest:
+          readRiseNest({ ...link, wall, kinkList, seed })
+          break
+        case SiftName.FallNest:
+          readFallNest({ ...link, wall, kinkList, seed })
+          break
+        default:
+          kinkList.push(
+            kink('not_implemented', {
+              form: seed.form,
+              file: link.file,
+            }),
+          )
+      }
+    } catch (e) {
+      if (e instanceof Kink) {
+        kinkList.push(e)
+      } else {
+        kinkList.push(
+          kink('not_implemented', {
+            form: seed.form,
+            file: link.file,
+          }),
+        )
+      }
+    }
+
+    tick++
+  }
+
+  return { cast: { ...link, tree }, kinkList }
+}
+
 function readRiseNest(link: TreeCallTree<SiftName.RiseNest>): void {
   const slab = link.wall[link.wall.length - 1]
   haveMesh(slab, 'slab')
@@ -442,20 +540,29 @@ function readCord(link: TreeCallTree<SiftName.Cord>): void {
 
   switch (base.form) {
     case TreeName.Knit: {
+      const leaf = link.seed.leaf
+      const hasOptional = leaf.text.includes('?')
       const cord: TreeCord = {
         form: TreeName.Cord,
-        leaf: link.seed.leaf,
+        text: hasOptional ? leaf.text.replace(/\?/g, '') : leaf.text,
+        leaf,
       }
 
       base.nest.push(cord)
+
+      if (hasOptional && base.base) {
+        base.base.optional = true
+      }
 
       linkBase(cord, base)
       break
     }
     case TreeName.Text: {
+      const leaf = link.seed.leaf
       const cord: TreeCord = {
         form: TreeName.Cord,
-        leaf: link.seed.leaf,
+        text: leaf.text,
+        leaf,
       }
 
       base.nest.push(cord)
@@ -530,6 +637,32 @@ export default function makeTreeFork(
     }
     return readSiftTree(siftLead)
   }
+}
+
+/**
+ * Error-tolerant parse: always returns a partial tree + error list.
+ * Never throws. The tree may be incomplete but contains all
+ * successfully parsed nodes.
+ */
+export function makeTreeForkTolerant(
+  link: LeafCallTree,
+): { tree: TreeLine; kinkList: Array<Kink> } {
+  const emptyTree: TreeLine = { form: TreeName.Line, nest: [] }
+
+  const lead = makeTextList(link)
+
+  if (Array.isArray(lead)) {
+    return { tree: emptyTree, kinkList: lead }
+  }
+
+  const siftLead = makeSiftList(lead)
+
+  if (Array.isArray(siftLead)) {
+    return { tree: emptyTree, kinkList: siftLead }
+  }
+
+  const result = readSiftTreeTolerant(siftLead)
+  return { tree: result.cast.tree, kinkList: result.kinkList }
 }
 
 function linkBase(head: Tree, base: Tree) {

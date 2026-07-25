@@ -296,13 +296,15 @@ export default function makeSiftList(
         // try fixing the code and seeing what happens
         tick = readNote.tick + 1
       } else if (tick > lastTick + 1) {
-        // kinkList.push(
-        //   kink('invalid_nesting', {
-        //     band: seed.band,
-        //     text: link.lineText,
-        //     file: link.file,
-        //   }),
-        // )
+        if (readNoteList.length === 1) {
+          kinkList.push(
+            kink('invalid_indentation', {
+              band: seed.band,
+              text: link.lineText,
+              file: link.file,
+            }),
+          )
+        }
         // try fixing the code and seeing what happens
         tick = lastTick + 1
       } else if (tick < readNote.tick) {
@@ -388,18 +390,9 @@ export default function makeSiftList(
   function castCode(seed: LeafCode) {
     testBaseLine()
 
-    if (seed.text.match(/#([xbo])([0-9a-f]+)/i)) {
-      const mold = RegExp.$1
+    if (seed.text.match(/^0([xXbBoO])([0-9a-fA-F]+)/)) {
+      const mold = RegExp.$1.toLowerCase()
       const bond = readCode(mold, RegExp.$2)
-      siftList.push({
-        form: SiftName.Code,
-        bond,
-        mold,
-        leaf: seed,
-      })
-    } else if (seed.text.match(/#(\d+)n(\w+)/)) {
-      const mold = RegExp.$1
-      const bond = parseInt(RegExp.$2, parseInt(mold, 10))
       siftList.push({
         form: SiftName.Code,
         bond,
@@ -528,11 +521,35 @@ export default function makeSiftList(
   function castKnit(seed: LeafKnit) {
     castRiseKnit(seed)
 
-    // if (seed.text.match(/\/{2,}/)) {
-    //   haltList.push(new Error('Invalid knit'))
-    // } else if (!seed.text.match(/^[0-9a-z-\/]+$/)) {
-    //   haltList.push(new Error('Invalid knit'))
-    // }
+    if (seed.text.includes('/')) {
+      const followsNick =
+        seed.back?.form === LeafName.FallNick
+      const segments = seed.text.split('/')
+      for (let i = 0; i < segments.length; i++) {
+        const segment = segments[i]!
+        if (segment.startsWith('-') && !(i === 0 && followsNick)) {
+          kinkList.push(
+            kink('syntax_error', {
+              band: seed.band,
+              text: link.lineText,
+              file: link.file,
+            }),
+          )
+          break
+        }
+        const qIdx = segment.indexOf('?')
+        if (qIdx !== -1 && qIdx !== segment.length - 1) {
+          kinkList.push(
+            kink('syntax_error', {
+              band: seed.band,
+              text: link.lineText,
+              file: link.file,
+            }),
+          )
+          break
+        }
+      }
+    }
 
     siftList.push({
       form: SiftName.Cord,

@@ -6,6 +6,8 @@ x a/b/c/d
   ./{{a}}/{b}-x/x-{c}/x-{{d}}-x/g
   /a/b/c/../d
   @another/thing.link
+  @/foo/bar
+  @/foo/{bar}/baz
   /{a}/{b}{c}
 
 ---
@@ -18,4 +20,6 @@ x
   ./{{a}}/{b}-x/x-{c}/x-{{d}}-x/g
   /a/b/c/../d
   @another/thing.link
+  @/foo/bar
+  @/foo/{bar}/baz
   /{a}/{b}{c}

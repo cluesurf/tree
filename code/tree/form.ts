@@ -77,6 +77,7 @@ export type TreeFork = {
   >
   base?: TreeFork | TreeNick
   form: TreeName.Fork
+  optional?: boolean
 }
 
 export type TreeComb = {
@@ -111,6 +112,7 @@ export type TreeNick = {
 
 export type TreeCord = {
   form: TreeName.Cord
+  text: string
   base?: TreeText | TreeKnit
   leaf: Leaf
 }

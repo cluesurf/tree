@@ -1,0 +1,929 @@
+{
+  "file": "/Users/lancepollard/base/crew/cluesurf/deck/tree/test/file/index.tree",
+  "text": "some thing/{another(a/b/c, 1, foo bar baz)}",
+  "lineText": [
+    "some thing/{another(a/b/c, 1, foo bar baz)}"
+  ],
+  "siftList": [
+    {
+      "form": "sift-rise-fork"
+    },
+    {
+      "form": "sift-rise-knit"
+    },
+    {
+      "form": "sift-cord",
+      "leaf": {
+        "form": "leaf-cord",
+        "band": {
+          "head": {
+            "mark": 4,
+            "line": 0
+          },
+          "base": {
+            "mark": 0,
+            "line": 0
+          }
+        },
+        "text": "some",
+        "head": {
+          "band": {
+            "head": {
+              "mark": 5,
+              "line": 0
+            },
+            "base": {
+              "mark": 4,
+              "line": 0
+            }
+          },
+          "text": " ",
+          "form": "leaf-slot"
+        }
+      }
+    },
+    {
+      "form": "sift-fall-knit"
+    },
+    {
+      "form": "sift-rise-fork"
+    },
+    {
+      "form": "sift-rise-knit"
+    },
+    {
+      "form": "sift-cord",
+      "leaf": {
+        "form": "leaf-cord",
+        "band": {
+          "head": {
+            "mark": 11,
+            "line": 0
+          },
+          "base": {
+            "mark": 5,
+            "line": 0
+          }
+        },
+        "text": "thing/",
+        "back": {
+          "band": {
+            "head": {
+              "mark": 5,
+              "line": 0
+            },
+            "base": {
+              "mark": 4,
+              "line": 0
+            }
+          },
+          "text": " ",
+          "form": "leaf-slot"
+        },
+        "head": {
+          "band": {
+            "head": {
+              "mark": 12,
+              "line": 0
+            },
+            "base": {
+              "mark": 11,
+              "line": 0
+            }
+          },
+          "text": "{",
+          "form": "leaf-rise-nick"
+        }
+      }
+    },
+    {
+      "form": "sift-rise-nick",
+      "leaf": {
+        "band": {
+          "head": {
+            "mark": 12,
+            "line": 0
+          },
+          "base": {
+            "mark": 11,
+            "line": 0
+          }
+        },
+        "text": "{",
+        "form": "leaf-rise-nick"
+      },
+      "size": 1
+    },
+    {
+      "form": "sift-rise-fork"
+    },
+    {
+      "form": "sift-rise-knit"
+    },
+    {
+      "form": "sift-cord",
+      "leaf": {
+        "form": "leaf-cord",
+        "band": {
+          "head": {
+            "mark": 19,
+            "line": 0
+          },
+          "base": {
+            "mark": 12,
+            "line": 0
+          }
+        },
+        "text": "another",
+        "back": {
+          "band": {
+            "head": {
+              "mark": 12,
+              "line": 0
+            },
+            "base": {
+              "mark": 11,
+              "line": 0
+            }
+          },
+          "text": "{",
+          "form": "leaf-rise-nick"
+        },
+        "head": {
+          "band": {
+            "head": {
+              "mark": 20,
+              "line": 0
+            },
+            "base": {
+              "mark": 19,
+              "line": 0
+            }
+          },
+          "text": "(",
+          "form": "leaf-rise-hold"
+        }
+      }
+    },
+    {
+      "form": "sift-fall-knit"
+    },
+    {
+      "form": "sift-rise-fork"
+    },
+    {
+      "form": "sift-rise-knit"
+    },
+    {
+      "form": "sift-cord",
+      "leaf": {
+        "form": "leaf-cord",
+        "band": {
+          "head": {
+            "mark": 25,
+            "line": 0
+          },
+          "base": {
+            "mark": 20,
+            "line": 0
+          }
+        },
+        "text": "a/b/c",
+        "back": {
+          "band": {
+            "head": {
+              "mark": 20,
+              "line": 0
+            },
+            "base": {
+              "mark": 19,
+              "line": 0
+            }
+          },
+          "text": "(",
+          "form": "leaf-rise-hold"
+        },
+        "head": {
+          "band": {
+            "head": {
+              "mark": 27,
+              "line": 0
+            },
+            "base": {
+              "mark": 25,
+              "line": 0
+            }
+          },
+          "text": ", ",
+          "form": "leaf-link"
+        }
+      }
+    },
+    {
+      "form": "sift-fall-knit"
+    },
+    {
+      "form": "sift-fall-fork"
+    },
+    {
+      "form": "sift-rise-fork"
+    },
+    {
+      "form": "sift-rise-knit"
+    },
+    {
+      "form": "sift-cord",
+      "leaf": {
+        "form": "leaf-cord",
+        "band": {
+          "head": {
+            "mark": 28,
+            "line": 0
+          },
+          "base": {
+            "mark": 27,
+            "line": 0
+          }
+        },
+        "text": "1",
+        "back": {
+          "band": {
+            "head": {
+              "mark": 27,
+              "line": 0
+            },
+            "base": {
+              "mark": 25,
+              "line": 0
+            }
+          },
+          "text": ", ",
+          "form": "leaf-link"
+        },
+        "head": {
+          "band": {
+            "head": {
+              "mark": 30,
+              "line": 0
+            },
+            "base": {
+              "mark": 28,
+              "line": 0
+            }
+          },
+          "text": ", ",
+          "form": "leaf-link"
+        }
+      }
+    },
+    {
+      "form": "sift-fall-knit"
+    },
+    {
+      "form": "sift-fall-fork"
+    },
+    {
+      "form": "sift-rise-fork"
+    },
+    {
+      "form": "sift-rise-knit"
+    },
+    {
+      "form": "sift-cord",
+      "leaf": {
+        "form": "leaf-cord",
+        "band": {
+          "head": {
+            "mark": 33,
+            "line": 0
+          },
+          "base": {
+            "mark": 30,
+            "line": 0
+          }
+        },
+        "text": "foo",
+        "back": {
+          "band": {
+            "head": {
+              "mark": 30,
+              "line": 0
+            },
+            "base": {
+              "mark": 28,
+              "line": 0
+            }
+          },
+          "text": ", ",
+          "form": "leaf-link"
+        },
+        "head": {
+          "band": {
+            "head": {
+              "mark": 34,
+              "line": 0
+            },
+            "base": {
+              "mark": 33,
+              "line": 0
+            }
+          },
+          "text": " ",
+          "form": "leaf-slot"
+        }
+      }
+    },
+    {
+      "form": "sift-fall-knit"
+    },
+    {
+      "form": "sift-rise-fork"
+    },
+    {
+      "form": "sift-rise-knit"
+    },
+    {
+      "form": "sift-cord",
+      "leaf": {
+        "form": "leaf-cord",
+        "band": {
+          "head": {
+            "mark": 37,
+            "line": 0
+          },
+          "base": {
+            "mark": 34,
+            "line": 0
+          }
+        },
+        "text": "bar",
+        "back": {
+          "band": {
+            "head": {
+              "mark": 34,
+              "line": 0
+            },
+            "base": {
+              "mark": 33,
+              "line": 0
+            }
+          },
+          "text": " ",
+          "form": "leaf-slot"
+        },
+        "head": {
+          "band": {
+            "head": {
+              "mark": 38,
+              "line": 0
+            },
+            "base": {
+              "mark": 37,
+              "line": 0
+            }
+          },
+          "text": " ",
+          "form": "leaf-slot"
+        }
+      }
+    },
+    {
+      "form": "sift-fall-knit"
+    },
+    {
+      "form": "sift-rise-fork"
+    },
+    {
+      "form": "sift-rise-knit"
+    },
+    {
+      "form": "sift-cord",
+      "leaf": {
+        "form": "leaf-cord",
+        "band": {
+          "head": {
+            "mark": 41,
+            "line": 0
+          },
+          "base": {
+            "mark": 38,
+            "line": 0
+          }
+        },
+        "text": "baz",
+        "back": {
+          "band": {
+            "head": {
+              "mark": 38,
+              "line": 0
+            },
+            "base": {
+              "mark": 37,
+              "line": 0
+            }
+          },
+          "text": " ",
+          "form": "leaf-slot"
+        },
+        "head": {
+          "band": {
+            "head": {
+              "mark": 42,
+              "line": 0
+            },
+            "base": {
+              "mark": 41,
+              "line": 0
+            }
+          },
+          "text": ")",
+          "form": "leaf-fall-hold"
+        }
+      }
+    },
+    {
+      "form": "sift-fall-knit"
+    },
+    {
+      "form": "sift-fall-fork"
+    },
+    {
+      "form": "sift-fall-fork"
+    },
+    {
+      "form": "sift-fall-fork"
+    },
+    {
+      "form": "sift-fall-fork"
+    },
+    {
+      "leaf": {
+        "band": {
+          "head": {
+            "mark": 43,
+            "line": 0
+          },
+          "base": {
+            "mark": 42,
+            "line": 0
+          }
+        },
+        "text": "}",
+        "form": "leaf-fall-nick"
+      },
+      "form": "sift-fall-nick"
+    },
+    {
+      "form": "sift-fall-knit"
+    },
+    {
+      "form": "sift-fall-fork"
+    },
+    {
+      "form": "sift-fall-fork"
+    }
+  ],
+  "tree": {
+    "form": "tree-line",
+    "nest": [
+      {
+        "nest": [
+          {
+            "form": "tree-knit",
+            "nest": [
+              {
+                "form": "tree-cord",
+                "text": "some",
+                "leaf": {
+                  "form": "leaf-cord",
+                  "band": {
+                    "head": {
+                      "mark": 4,
+                      "line": 0
+                    },
+                    "base": {
+                      "mark": 0,
+                      "line": 0
+                    }
+                  },
+                  "text": "some",
+                  "head": {
+                    "band": {
+                      "head": {
+                        "mark": 5,
+                        "line": 0
+                      },
+                      "base": {
+                        "mark": 4,
+                        "line": 0
+                      }
+                    },
+                    "text": " ",
+                    "form": "leaf-slot"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "nest": [
+              {
+                "form": "tree-knit",
+                "nest": [
+                  {
+                    "form": "tree-cord",
+                    "text": "thing/",
+                    "leaf": {
+                      "form": "leaf-cord",
+                      "band": {
+                        "head": {
+                          "mark": 11,
+                          "line": 0
+                        },
+                        "base": {
+                          "mark": 5,
+                          "line": 0
+                        }
+                      },
+                      "text": "thing/",
+                      "back": {
+                        "band": {
+                          "head": {
+                            "mark": 5,
+                            "line": 0
+                          },
+                          "base": {
+                            "mark": 4,
+                            "line": 0
+                          }
+                        },
+                        "text": " ",
+                        "form": "leaf-slot"
+                      },
+                      "head": {
+                        "band": {
+                          "head": {
+                            "mark": 12,
+                            "line": 0
+                          },
+                          "base": {
+                            "mark": 11,
+                            "line": 0
+                          }
+                        },
+                        "text": "{",
+                        "form": "leaf-rise-nick"
+                      }
+                    }
+                  },
+                  {
+                    "form": "tree-nick",
+                    "size": 1,
+                    "nest": {
+                      "nest": [
+                        {
+                          "form": "tree-knit",
+                          "nest": [
+                            {
+                              "form": "tree-cord",
+                              "text": "another",
+                              "leaf": {
+                                "form": "leaf-cord",
+                                "band": {
+                                  "head": {
+                                    "mark": 19,
+                                    "line": 0
+                                  },
+                                  "base": {
+                                    "mark": 12,
+                                    "line": 0
+                                  }
+                                },
+                                "text": "another",
+                                "back": {
+                                  "band": {
+                                    "head": {
+                                      "mark": 12,
+                                      "line": 0
+                                    },
+                                    "base": {
+                                      "mark": 11,
+                                      "line": 0
+                                    }
+                                  },
+                                  "text": "{",
+                                  "form": "leaf-rise-nick"
+                                },
+                                "head": {
+                                  "band": {
+                                    "head": {
+                                      "mark": 20,
+                                      "line": 0
+                                    },
+                                    "base": {
+                                      "mark": 19,
+                                      "line": 0
+                                    }
+                                  },
+                                  "text": "(",
+                                  "form": "leaf-rise-hold"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "nest": [
+                            {
+                              "form": "tree-knit",
+                              "nest": [
+                                {
+                                  "form": "tree-cord",
+                                  "text": "a/b/c",
+                                  "leaf": {
+                                    "form": "leaf-cord",
+                                    "band": {
+                                      "head": {
+                                        "mark": 25,
+                                        "line": 0
+                                      },
+                                      "base": {
+                                        "mark": 20,
+                                        "line": 0
+                                      }
+                                    },
+                                    "text": "a/b/c",
+                                    "back": {
+                                      "band": {
+                                        "head": {
+                                          "mark": 20,
+                                          "line": 0
+                                        },
+                                        "base": {
+                                          "mark": 19,
+                                          "line": 0
+                                        }
+                                      },
+                                      "text": "(",
+                                      "form": "leaf-rise-hold"
+                                    },
+                                    "head": {
+                                      "band": {
+                                        "head": {
+                                          "mark": 27,
+                                          "line": 0
+                                        },
+                                        "base": {
+                                          "mark": 25,
+                                          "line": 0
+                                        }
+                                      },
+                                      "text": ", ",
+                                      "form": "leaf-link"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "form": "tree-fork"
+                        },
+                        {
+                          "nest": [
+                            {
+                              "form": "tree-knit",
+                              "nest": [
+                                {
+                                  "form": "tree-cord",
+                                  "text": "1",
+                                  "leaf": {
+                                    "form": "leaf-cord",
+                                    "band": {
+                                      "head": {
+                                        "mark": 28,
+                                        "line": 0
+                                      },
+                                      "base": {
+                                        "mark": 27,
+                                        "line": 0
+                                      }
+                                    },
+                                    "text": "1",
+                                    "back": {
+                                      "band": {
+                                        "head": {
+                                          "mark": 27,
+                                          "line": 0
+                                        },
+                                        "base": {
+                                          "mark": 25,
+                                          "line": 0
+                                        }
+                                      },
+                                      "text": ", ",
+                                      "form": "leaf-link"
+                                    },
+                                    "head": {
+                                      "band": {
+                                        "head": {
+                                          "mark": 30,
+                                          "line": 0
+                                        },
+                                        "base": {
+                                          "mark": 28,
+                                          "line": 0
+                                        }
+                                      },
+                                      "text": ", ",
+                                      "form": "leaf-link"
+                                    }
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "form": "tree-fork"
+                        },
+                        {
+                          "nest": [
+                            {
+                              "form": "tree-knit",
+                              "nest": [
+                                {
+                                  "form": "tree-cord",
+                                  "text": "foo",
+                                  "leaf": {
+                                    "form": "leaf-cord",
+                                    "band": {
+                                      "head": {
+                                        "mark": 33,
+                                        "line": 0
+                                      },
+                                      "base": {
+                                        "mark": 30,
+                                        "line": 0
+                                      }
+                                    },
+                                    "text": "foo",
+                                    "back": {
+                                      "band": {
+                                        "head": {
+                                          "mark": 30,
+                                          "line": 0
+                                        },
+                                        "base": {
+                                          "mark": 28,
+                                          "line": 0
+                                        }
+                                      },
+                                      "text": ", ",
+                                      "form": "leaf-link"
+                                    },
+                                    "head": {
+                                      "band": {
+                                        "head": {
+                                          "mark": 34,
+                                          "line": 0
+                                        },
+                                        "base": {
+                                          "mark": 33,
+                                          "line": 0
+                                        }
+                                      },
+                                      "text": " ",
+                                      "form": "leaf-slot"
+                                    }
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "nest": [
+                                {
+                                  "form": "tree-knit",
+                                  "nest": [
+                                    {
+                                      "form": "tree-cord",
+                                      "text": "bar",
+                                      "leaf": {
+                                        "form": "leaf-cord",
+                                        "band": {
+                                          "head": {
+                                            "mark": 37,
+                                            "line": 0
+                                          },
+                                          "base": {
+                                            "mark": 34,
+                                            "line": 0
+                                          }
+                                        },
+                                        "text": "bar",
+                                        "back": {
+                                          "band": {
+                                            "head": {
+                                              "mark": 34,
+                                              "line": 0
+                                            },
+                                            "base": {
+                                              "mark": 33,
+                                              "line": 0
+                                            }
+                                          },
+                                          "text": " ",
+                                          "form": "leaf-slot"
+                                        },
+                                        "head": {
+                                          "band": {
+                                            "head": {
+                                              "mark": 38,
+                                              "line": 0
+                                            },
+                                            "base": {
+                                              "mark": 37,
+                                              "line": 0
+                                            }
+                                          },
+                                          "text": " ",
+                                          "form": "leaf-slot"
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "nest": [
+                                    {
+                                      "form": "tree-knit",
+                                      "nest": [
+                                        {
+                                          "form": "tree-cord",
+                                          "text": "baz",
+                                          "leaf": {
+                                            "form": "leaf-cord",
+                                            "band": {
+                                              "head": {
+                                                "mark": 41,
+                                                "line": 0
+                                              },
+                                              "base": {
+                                                "mark": 38,
+                                                "line": 0
+                                              }
+                                            },
+                                            "text": "baz",
+                                            "back": {
+                                              "band": {
+                                                "head": {
+                                                  "mark": 38,
+                                                  "line": 0
+                                                },
+                                                "base": {
+                                                  "mark": 37,
+                                                  "line": 0
+                                                }
+                                              },
+                                              "text": " ",
+                                              "form": "leaf-slot"
+                                            },
+                                            "head": {
+                                              "band": {
+                                                "head": {
+                                                  "mark": 42,
+                                                  "line": 0
+                                                },
+                                                "base": {
+                                                  "mark": 41,
+                                                  "line": 0
+                                                }
+                                              },
+                                              "text": ")",
+                                              "form": "leaf-fall-hold"
+                                            }
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "form": "tree-fork"
+                                }
+                              ],
+                              "form": "tree-fork"
+                            }
+                          ],
+                          "form": "tree-fork"
+                        }
+                      ],
+                      "form": "tree-fork"
+                    }
+                  }
+                ]
+              }
+            ],
+            "form": "tree-fork"
+          }
+        ],
+        "form": "tree-fork"
+      }
+    ]
+  }
+}
