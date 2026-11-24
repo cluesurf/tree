@@ -24,7 +24,7 @@
 [TreeCode](https://tree.surf) (**T**extual **R**epresentation for
 **E**xtensible **E**xpressions) is a little more than a markup language,
 tending toward a programming language. In fact, it can be used for a
-programming language, but I like to think of it as a "Data Modeling
+programming language (see [Term lang](https://github.com/cluesurf/term)), but I like to think of it as a "Data Modeling
 Programming Language". It is a way to model information and computation
 in an easy to read and write format, suitable for hierarchical note
 taking and other means of capturing data down into structured form.
