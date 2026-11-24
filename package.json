@@ -1,9 +1,21 @@
 {
   "name": "@cluesurf/tree",
   "type": "module",
-  "description": "A flexible modeling notation",
+  "description": "A flexible modeling notation Δ",
   "version": "1.3.0",
   "license": "MIT",
+  "repository": "github:cluesurf/tree",
+  "keywords": [
+    "modeling language",
+    "notation",
+    "markup language",
+    "data modeling"
+  ],
+  "archive": {
+    "identifier": "tree-notation",
+    "title": "Tree",
+    "cover": "view/tree-icon.svg"
+  },
   "main": "./host/index.js",
   "scripts": {
     "make": "rm -rf host && mkdir -p host && pnpm exec tsc --project tsconfig.json --pretty --noEmitOnError false && pnpm exec tsc-alias --project tsconfig.json && cp package.json host",

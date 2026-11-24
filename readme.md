@@ -12,7 +12,7 @@
 
 <h3 align='center'>tree</h3>
 <p align='center'>
-  A flexible modeling notation Δ
+  <b>T</b>extual <b>R</b>epresentation for <b>E</b>xtensible <b>E</b>xpressions
 </p>
 
 <br/>
@@ -21,7 +21,8 @@
 
 ## Welcome
 
-[TreeCode](https://tree.surf) is a little more than a markup language,
+[TreeCode](https://tree.surf) (**T**extual **R**epresentation for
+**E**xtensible **E**xpressions) is a little more than a markup language,
 tending toward a programming language. In fact, it can be used for a
 programming language, but I like to think of it as a "Data Modeling
 Programming Language". It is a way to model information and computation
@@ -88,11 +89,4 @@ MIT
 
 ## ClueSurf
 
-Made by [ClueSurf](https://clue.surf), meditating on the universe ¤.
-Follow the work on [YouTube](https://youtube.com/@cluesurf),
-[X](https://x.com/cluesurf),
-[Instagram](https://instagram.com/cluesurf),
-[Substack](https://cluesurf.substack.com),
-[Facebook](https://facebook.com/cluesurf), and
-[LinkedIn](https://linkedin.com/company/cluesurf), and browse more of
-our open-source work here on [GitHub](https://github.com/cluesurf).
+Made by [ClueSurf](https://clue.surf), meditating on the universe.
